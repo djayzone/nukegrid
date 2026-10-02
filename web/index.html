@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#6b431f">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>NukeGrid — Valmorne</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <svg class="ng-sprite" aria-hidden="true">
+    <symbol id="ng-brand" viewBox="0 0 72 72">
+      <path d="M7 49c11 7 23 9 34 5 8-3 15-8 24-8-8 8-17 13-29 15C24 63 14 59 7 49Z" fill="currentColor"/>
+      <path d="M15 47c5-10 7-21 6-33h15c-2 12 0 23 5 33H15Zm26 0c5-9 7-19 6-30h13c-1 11 1 21 5 30H41Z" fill="currentColor" opacity=".92"/>
+      <path d="M9 36C13 17 26 7 45 7c10 0 18 3 23 8C57 8 44 7 33 12 20 18 13 28 9 36Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M27 12c0-4 2-6 5-8m22 9c0-4 2-7 5-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".65"/>
+    </symbol>
+    <symbol id="ng-shield" viewBox="0 0 24 24">
+      <path d="M12 2 20 5v6c0 5-3.4 9-8 11-4.6-2-8-6-8-11V5l8-3Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="m8.3 12 2.3 2.3 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ng-save" viewBox="0 0 24 24">
+      <path d="M5 3h12l3 3v15H4V3h1Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M8 3v6h8V3M8 21v-7h8v7" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+    <symbol id="ng-export" viewBox="0 0 24 24">
+      <path d="M12 15V3m0 0L8 7m4-4 4 4M5 12v8h14v-8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ng-import" viewBox="0 0 24 24">
+      <path d="M12 3v12m0 0-4-4m4 4 4-4M5 12v8h14v-8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ng-treasury" viewBox="0 0 24 24">
+      <path d="M3 9h18L12 3 3 9Zm2 2h14M6 11v7m4-7v7m4-7v7m4-7v7M3 20h18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ng-bolt" viewBox="0 0 24 24">
+      <path d="m13.5 2-8 12H11l-.5 8 8-12H13l.5-8Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="ng-chart" viewBox="0 0 24 24">
+      <path d="M4 20V12h3v8H4Zm6 0V7h3v13h-3Zm6 0V3h3v17h-3Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="ng-radiation" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="2.1" fill="currentColor"/>
+      <path d="M11 3.5a8.6 8.6 0 0 0-5.9 3.4L9 9.2a4 4 0 0 1 2-1.1V3.5Zm2 0v4.6A4 4 0 0 1 15 9.2l3.9-2.3A8.6 8.6 0 0 0 13 3.5ZM6.1 15.8A8.6 8.6 0 0 0 12 20.5v-4.6a4 4 0 0 1-2.9-1.7l-3 1.6Zm11.8 0-3-1.6a4 4 0 0 1-2.9 1.7v4.6a8.6 8.6 0 0 0 5.9-4.7Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="ng-reactor" viewBox="0 0 24 24">
+      <path d="M8 4h8c-1 3-.8 6 .7 9.5.8 1.8 1.4 3.9 1.8 6.5h-13c.4-2.6 1-4.7 1.8-6.5C8.8 10 9 7 8 4Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+      <path d="M6 20h12M8.5 4h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ng-gauge" viewBox="0 0 24 24">
+      <path d="M4 17a8 8 0 1 1 16 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="m12 16 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="12" cy="16" r="1.5" fill="currentColor"/>
+    </symbol>
+    <symbol id="ng-wrench" viewBox="0 0 24 24">
+      <path d="M14 6a5 5 0 0 0-6.3 6.3L3 17l4 4 4.7-4.7A5 5 0 0 0 18 10l-3 2-3-3 2-3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ng-settings" viewBox="0 0 24 24">
+      <path d="M9.5 3h5l.7 2.2 2 .8 2-1 2.5 4.3-1.7 1.5.2 2.2 1.5 1.4-2.5 4.3-2-.8-2 .9-.7 2.2h-5l-.7-2.2-2-.9-2 .8-2.5-4.3 1.5-1.4.2-2.2-1.7-1.5L5.8 5l2 1 2-.8L9.5 3Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="12" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    </symbol>
+    <symbol id="ng-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 7v6l4 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ng-chevron" viewBox="0 0 24 24">
+      <path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ng-play" viewBox="0 0 24 24">
+      <path d="m8 5 11 7-11 7V5Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="ng-info" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 10v6m0-9h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <a class="skip-link" href="#site">Aller au site</a>
+
+  <header class="topbar" aria-label="État général">
+    <div class="brand-hero">
+      <svg class="hero-plant" viewBox="0 0 520 220" aria-hidden="true">
+        <defs>
+          <linearGradient id="ng-sky" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#a9652b" stop-opacity=".55"/>
+            <stop offset=".5" stop-color="#f6a936" stop-opacity=".18"/>
+            <stop offset="1" stop-color="#2d1a0d" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="ng-tower" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f7dfba" stop-opacity=".72"/>
+            <stop offset="1" stop-color="#9e6230" stop-opacity=".16"/>
+          </linearGradient>
+        </defs>
+        <rect width="520" height="220" fill="url(#ng-sky)"/>
+        <path d="M302 182c12-32 19-66 13-115h74c-6 49 1 83 13 115h-100Z" fill="url(#ng-tower)" stroke="#ffcc67" stroke-opacity=".25"/>
+        <path d="M399 182c10-25 15-52 10-91h58c-5 39 0 66 10 91h-78Z" fill="url(#ng-tower)" stroke="#ffcc67" stroke-opacity=".2"/>
+        <path d="M321 67h49M414 91h39" stroke="#ffd365" stroke-width="3" stroke-linecap="round" opacity=".48"/>
+        <path d="M345 63c-16-21 8-25-2-45m89 70c-10-14 7-20 0-34" fill="none" stroke="#f4e8d7" stroke-opacity=".2" stroke-width="10" stroke-linecap="round"/>
+        <path d="M255 186h260" stroke="#ffb134" stroke-opacity=".28"/>
+        <circle cx="321" cy="186" r="3" fill="#ffd365"/><circle cx="373" cy="186" r="2" fill="#ffb134"/><circle cx="449" cy="186" r="3" fill="#ffd365"/>
+      </svg>
+
+      <div class="brand-lockup">
+        <svg class="brand-mark" viewBox="0 0 72 72" aria-hidden="true"><use href="#ng-brand"></use></svg>
+        <div class="brand-word">
+          <strong><span>NUKE</span><b>GRID</b></strong>
+          <small>VALMORNE FICTIF</small>
+        </div>
+      </div>
+      <p class="brand-kicker">Énergie aujourd’hui · décisions pour demain</p>
+      <h1>Relève sous tension</h1>
+      <p class="brand-subtitle">Pilotez la production de Valmorne.</p>
+    </div>
+
+    <div class="topbar-controls">
+      <button id="sound-toggle" class="status-control" type="button" aria-pressed="false">
+        <svg class="ng-icon" aria-hidden="true"><use href="#ng-shield"></use></svg>
+        <span><small>Alarmes</small><strong>Son désactivé</strong></span>
+        <svg class="ng-icon chevron" aria-hidden="true"><use href="#ng-chevron"></use></svg>
+      </button>
+      <div class="persist-actions" aria-label="Sauvegardes locales">
+        <button id="save-manual" class="tool-button" type="button">
+          <svg class="ng-icon" aria-hidden="true"><use href="#ng-save"></use></svg><span>Sauvegarder</span>
+        </button>
+        <button id="export-save" class="tool-button" type="button">
+          <svg class="ng-icon" aria-hidden="true"><use href="#ng-export"></use></svg><span>Exporter</span>
+        </button>
+        <button id="import-save" class="tool-button" type="button">
+          <svg class="ng-icon" aria-hidden="true"><use href="#ng-import"></use></svg><span>Importer</span>
+        </button>
+        <input id="import-file" type="file" accept="application/json,.json" hidden>
+      </div>
+    </div>
+
+    <div id="status-kpis" class="kpis" aria-live="polite"></div>
+  </header>
+
+  <main class="shell">
+    <section class="panel mission" aria-labelledby="mission-title">
+      <div class="mission-head">
+        <div>
+          <span class="panel-kicker">Priorité opérationnelle</span>
+          <h2 id="mission-title">Objectif actuel</h2>
+        </div>
+        <span id="mission-state" class="mission-state calm">Analyse de la situation…</span>
+      </div>
+      <div class="mission-grid">
+        <div class="mission-main">
+          <span class="mission-eyebrow">À faire maintenant</span>
+          <strong id="mission-objective">Lecture de la situation en cours</strong>
+          <p id="mission-why">Les objectifs du scénario seront affichés ici avec leur raison opérationnelle.</p>
+        </div>
+        <div class="mission-detail">
+          <span>Échéance</span>
+          <strong id="mission-deadline">—</strong>
+        </div>
+        <div class="mission-detail">
+          <span>Risque</span>
+          <strong id="mission-risk">—</strong>
+        </div>
+        <div class="mission-detail mission-next">
+          <span>Prochaine action</span>
+          <strong id="mission-action">—</strong>
+        </div>
+      </div>
+      <div id="mission-objectives" class="mission-objectives" aria-label="Objectifs du scénario"></div>
+      <p class="mission-glossary"><abbr title="Puissance instantanée">MW</abbr> = puissance instantanée · <abbr title="Énergie produite ou consommée sur une durée">MWh</abbr> = énergie cumulée sur une durée.</p>
+    </section>
+
+    <aside class="panel assets" aria-labelledby="assets-title">
+      <div class="panel-head">
+        <div>
+          <span class="panel-kicker">Parc de production</span>
+          <h2 id="assets-title">Tranches Valmorne</h2>
+        </div>
+        <span class="hint">1 / 2 pour sélectionner</span>
+      </div>
+      <div id="asset-list"></div>
+    </aside>
+
+    <section class="panel tutorial" aria-labelledby="tutorial-title">
+      <div class="panel-head">
+        <div><span class="panel-kicker">Prise en main</span><h2 id="tutorial-title">Tutoriel · 10 min</h2></div>
+        <span id="tutorial-progress" class="hint">0 / 4</span>
+      </div>
+      <div id="tutorial-content" class="tutorial-content">
+        <ol>
+          <li><strong>Puissance (MW)</strong> : ce que la tranche fournit à un instant donné.</li>
+          <li><strong>Énergie (MWh)</strong> : la puissance cumulée pendant une durée.</li>
+          <li><strong>Engagement</strong> : une puissance à livrer pendant une fenêtre, donc un volume en MWh.</li>
+          <li>Pilotez une tranche, produisez de l’énergie puis relisez l’engagement restant.</li>
+        </ol>
+        <button id="tutorial-understood" type="button" class="secondary-action">J’ai compris l’engagement</button>
+        <div id="tutorial-status" class="hint" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="site" class="panel site" aria-labelledby="site-title">
+      <div class="panel-head">
+        <div>
+          <span class="panel-kicker">Vue opérateur</span>
+          <h2 id="site-title">Site Valmorne</h2>
+          <span id="site-environment" class="hint"></span>
+        </div>
+        <span class="legend"><i class="swatch selection"></i> sélection <i class="swatch attention"></i> attention</span>
+      </div>
+      <div id="site-canvas" class="site-canvas" role="img" aria-label="Vue schématique de la centrale de Valmorne"></div>
+      <div id="site-table" class="sr-only" aria-label="Vue tabulaire équivalente"></div>
+    </section>
+
+    <aside class="panel inspector" aria-labelledby="inspector-title">
+      <div class="panel-head">
+        <div><span class="panel-kicker">Pilotage</span><h2 id="inspector-title">Pilotage de la tranche</h2></div>
+      </div>
+      <div id="inspector-content"></div>
+    </aside>
+
+    <section class="panel alerts" aria-labelledby="alerts-title">
+      <div class="panel-head"><div><span class="panel-kicker">Surveillance</span><h2 id="alerts-title">Alertes groupées</h2></div></div>
+      <div id="alerts-content" aria-live="assertive"></div>
+    </section>
+
+    <section class="panel market" aria-labelledby="market-title">
+      <div class="panel-head">
+        <div><span class="panel-kicker">Économie</span><h2 id="market-title">Engagement & prévisions</h2></div>
+        <span class="hint">€/MWh · plage = prévision</span>
+      </div>
+      <div id="forecast-chart"></div>
+      <div id="commitments"></div>
+    </section>
+
+    <section class="panel planning" aria-labelledby="planning-title">
+      <div class="panel-head"><div><span class="panel-kicker">Interventions</span><h2 id="planning-title">Interventions prévues</h2></div></div>
+      <div id="planning-content"></div>
+    </section>
+
+    <section class="panel debrief" aria-labelledby="debrief-title">
+      <div class="panel-head"><div><span class="panel-kicker">Retour d’expérience</span><h2 id="debrief-title">Débrief causal</h2></div></div>
+      <div id="debrief-content"></div>
+    </section>
+  </main>
+
+  <footer class="timebar" aria-label="Chronologie et contrôle du temps">
+    <div class="time-readout">
+      <svg class="ng-icon time-brand-icon" aria-hidden="true"><use href="#ng-clock"></use></svg>
+      <div>
+        <strong id="sim-clock">J1 00:00:00</strong>
+        <small>Temps de simulation</small>
+      </div>
+    </div>
+    <div class="time-controls" aria-label="Vitesse de simulation">
+      <button id="time-toggle" class="time-toggle" type="button" aria-pressed="false" aria-label="Mettre en pause">
+        <span class="pause-glyph" aria-hidden="true"></span>
+      </button>
+      <div class="speed-selector" role="group" aria-label="Multiplicateur du temps">
+        <button type="button" data-time-speed="1" aria-pressed="true">x1</button>
+        <button type="button" data-time-speed="2" aria-pressed="false">x2</button>
+        <button type="button" data-time-speed="4" aria-pressed="false">x4</button>
+        <button type="button" data-time-speed="8" aria-pressed="false">x8</button>
+        <button type="button" data-time-speed="16" aria-pressed="false">x16</button>
+        <button type="button" data-time-speed="32" aria-pressed="false">x32</button>
+      </div>
+    </div>
+    <div class="footer-feedback">
+      <div id="action-feedback" class="feedback" aria-live="polite"></div>
+      <div id="persistence-feedback" class="persistence-feedback" aria-live="polite"></div>
+    </div>
+  </footer>
+
+  <dialog id="confirm-dialog" aria-labelledby="confirm-title">
+    <h2 id="confirm-title">Confirmer l’engagement</h2>
+    <p id="confirm-copy"></p>
+    <div class="dialog-actions">
+      <button id="confirm-cancel" type="button" class="secondary-action">Annuler</button>
+      <button id="confirm-accept" type="button" class="danger">Confirmer l’achat</button>
+    </div>
+  </dialog>
+
+  <noscript>JavaScript est requis pour piloter le prototype jouable.</noscript>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
