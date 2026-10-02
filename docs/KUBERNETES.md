@@ -1,102 +1,56 @@
-# Lancer NukeGrid sur Kubernetes
+# Run NukeGrid on Kubernetes
 
-Ce guide permet de lancer NukeGrid sans connaître en détail Kubernetes.
+[🇬🇧 English](KUBERNETES.md) · [🇫🇷 Français](KUBERNETES.fr.md)
 
-## Ce qui sera créé
+This guide is intended for people who are new to Kubernetes.
 
-Le manifeste `deploy/kubernetes/deployment.yaml` crée :
+## What gets created
 
-- un namespace `nukegrid` ;
-- un Deployment ;
-- un Service interne.
+The manifest in `deploy/kubernetes/deployment.yaml` creates:
 
-NukeGrid n'a pas besoin de base de données ni de PersistentVolume pour un premier démarrage.
+- namespace `nukegrid`;
+- one Deployment;
+- one internal Service.
 
-## Option A — test local avec kind
+NukeGrid does not require a database or PersistentVolume for a basic deployment.
 
-### 1. Prérequis
+## Option A — local test with kind
 
-Installez :
-
-- Docker ;
-- `kubectl` ;
-- `kind`.
-
-Vérifiez :
-
-```bash
-docker --version
-kubectl version --client
-kind version
-```
-
-### 2. Construire l'image
+Install Docker, `kubectl` and `kind`.
 
 ```bash
 docker build -t nukegrid:local .
-```
-
-### 3. Créer un cluster
-
-```bash
 kind create cluster --name nukegrid
-```
-
-### 4. Charger l'image dans kind
-
-```bash
 kind load docker-image nukegrid:local --name nukegrid
-```
-
-### 5. Déployer
-
-```bash
 kubectl apply -f deploy/kubernetes/
-```
-
-### 6. Vérifier
-
-```bash
 kubectl -n nukegrid get pods
-kubectl -n nukegrid get svc
-```
-
-Le pod doit finir en état `Running`.
-
-### 7. Accéder au jeu
-
-```bash
 kubectl -n nukegrid port-forward svc/nukegrid 4176:4176
 ```
 
-Puis ouvrez :
+Then open **http://localhost:4176**.
 
-```text
-http://localhost:4176
-```
+## Option B — real Kubernetes cluster
 
-## Option B — vrai cluster Kubernetes
-
-Construisez et poussez l'image dans votre registre :
+Build and push the image:
 
 ```bash
-docker build -t REGISTRY/UTILISATEUR/nukegrid:latest .
-docker push REGISTRY/UTILISATEUR/nukegrid:latest
+docker build -t REGISTRY/USER/nukegrid:latest .
+docker push REGISTRY/USER/nukegrid:latest
 ```
 
-Dans `deploy/kubernetes/deployment.yaml`, remplacez :
+In `deploy/kubernetes/deployment.yaml`, replace:
 
 ```yaml
 image: nukegrid:local
 ```
 
-par :
+with your image:
 
 ```yaml
-image: REGISTRY/UTILISATEUR/nukegrid:latest
+image: REGISTRY/USER/nukegrid:latest
 ```
 
-Puis appliquez :
+Then deploy:
 
 ```bash
 kubectl apply -f deploy/kubernetes/
@@ -108,26 +62,24 @@ kubectl apply -f deploy/kubernetes/
 kubectl -n nukegrid logs -f deployment/nukegrid
 ```
 
-## Redémarrer
+## Restart
 
 ```bash
 kubectl -n nukegrid rollout restart deployment/nukegrid
 ```
 
-## Supprimer
+## Remove
 
 ```bash
 kubectl delete -f deploy/kubernetes/
 ```
 
-## Plusieurs replicas ?
+## Scaling
 
-Le serveur conserve des sessions en mémoire. Pour un premier déploiement, gardez **1 replica**.
+The server keeps sessions in memory. Keep **1 replica** for a basic deployment.
 
-Avant de scaler horizontalement, il faut prévoir une stratégie de session partagée ou d'affinité de session selon l'usage souhaité.
+Before scaling horizontally, add shared session state or a suitable session-affinity strategy.
 
-## Exposer publiquement
+## Public exposure
 
-Pour commencer, utilisez le port-forward.
-
-Pour Internet, ajoutez ensuite un Ingress adapté à votre cluster, avec HTTPS. Les contrôleurs Ingress variant selon les plateformes, aucun Ingress spécifique n'est imposé dans le dépôt public.
+Start with port-forwarding. For Internet exposure, add an Ingress compatible with your cluster and enable HTTPS.

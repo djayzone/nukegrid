@@ -1,128 +1,87 @@
-# Lancer NukeGrid avec Docker
+# Run NukeGrid with Docker
 
-Ce guide ne suppose aucune connaissance de Node.js ou TypeScript.
+[🇬🇧 English](DOCKER.md) · [🇫🇷 Français](DOCKER.fr.md)
 
-## 1. Installer Docker
+This guide assumes no Node.js or TypeScript knowledge.
 
-Installez **Docker Desktop** sur Windows/macOS ou Docker Engine sur Linux.
+## 1. Install Docker
 
-Vérifiez :
+Install **Docker Desktop** on Windows/macOS or Docker Engine on Linux.
 
 ```bash
 docker --version
 docker compose version
 ```
 
-## 2. Télécharger le projet
+## 2. Download the project
 
 ```bash
 git clone https://github.com/djayzone/nukegrid.git
 cd nukegrid
 ```
 
-## 3. Méthode la plus simple : Docker Compose
+## 3. Easiest method: Docker Compose
 
 ```bash
 docker compose up --build
 ```
 
-Puis ouvrez :
+Open **http://localhost:4176**.
 
-```text
-http://localhost:4176
-```
-
-Pour arrêter :
+Stop:
 
 ```bash
 docker compose down
 ```
 
-## 4. Méthode Docker classique
-
-Construire l'image :
+## 4. Plain Docker
 
 ```bash
 docker build -t nukegrid:local .
-```
-
-Lancer :
-
-```bash
 docker run --name nukegrid -p 4176:4176 nukegrid:local
 ```
 
-Puis ouvrez :
+Open **http://localhost:4176**.
 
-```text
-http://localhost:4176
-```
-
-Arrêter :
-
-```bash
-docker stop nukegrid
-```
-
-Relancer :
-
-```bash
-docker start nukegrid
-```
-
-Supprimer le conteneur :
-
-```bash
-docker rm nukegrid
-```
-
-## Vérifier que NukeGrid fonctionne
+## Health check
 
 ```bash
 curl http://localhost:4176/healthz
 ```
 
-Réponse attendue :
+Expected response:
 
 ```json
 {"ok":true}
 ```
 
-## Voir les logs
+## Logs
 
-Avec Compose :
+Compose:
 
 ```bash
 docker compose logs -f nukegrid
 ```
 
-Avec Docker :
+Docker:
 
 ```bash
 docker logs -f nukegrid
 ```
 
-## Changer le port
-
-Pour utiliser le port 9000 sur votre machine :
+## Use another host port
 
 ```bash
 docker run --rm -p 9000:4176 nukegrid:local
 ```
 
-Puis :
+Open **http://localhost:9000**.
 
-```text
-http://localhost:9000
-```
+## Where are saves stored?
 
-## Où sont les sauvegardes ?
+The main browser save is stored in **IndexedDB**. The container does not need a volume for a basic deployment.
 
-La sauvegarde principale de l'interface est stockée dans **IndexedDB dans le navigateur**.
-
-Le conteneur n'a donc pas besoin de volume pour un premier usage.
-
-## Mettre à jour
+## Update
 
 ```bash
 git pull

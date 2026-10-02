@@ -2,9 +2,11 @@
 
 # NukeGrid
 
-### Un jeu de gestion de réseau électrique et de production nucléaire déterministe.
+### A deterministic nuclear power and electrical-grid management game prototype.
 
-**Pilotez la production, la maintenance, les incidents et l'économie d'un réseau sous contrainte.**
+**Balance production, maintenance, incidents, delivery commitments and economics under pressure.**
+
+[🇬🇧 English](README.md) · [🇫🇷 Français](README.fr.md)
 
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Node](https://img.shields.io/badge/node-24%2B-339933)
@@ -17,24 +19,24 @@
 
 ---
 
-## À propos
+## About
 
-**NukeGrid** est un prototype de jeu de gestion déterministe autour de la production électrique, de la maintenance, des incidents, des engagements de livraison et de l'économie d'un réseau.
+**NukeGrid** is an experimental deterministic management game about electrical production, maintenance, incidents, delivery commitments and grid economics.
 
-Le projet n'est plus développé comme produit officiel par son créateur, mais il reste **ouvert aux forks, issues et pull requests**.
+The project is no longer developed as an official first-party product, but it remains **open to forks, issues and pull requests**.
 
-> Vous débutez ? Utilisez Docker Compose : c'est la façon la plus simple de lancer le jeu sans installer Node.js.
+> New here? Use Docker Compose. It is the easiest way to run the game without installing Node.js.
 
-## Démarrage rapide
+## Quick start
 
-| Méthode | Pour qui ? | Commande principale |
+| Method | Best for | Main command |
 |---|---|---|
-| **Docker Compose** | Débutants | `docker compose up --build` |
-| **Docker** | Utilisateurs Docker | `docker build -t nukegrid:local .` |
-| **Node.js local** | Développeurs | `npm run start:playable` |
-| **Kubernetes** | Homelab / cluster | voir [docs/KUBERNETES.md](docs/KUBERNETES.md) |
+| **Docker Compose** | Beginners | `docker compose up --build` |
+| **Docker** | Docker users | `docker build -t nukegrid:local .` |
+| **Local Node.js** | Developers | `npm run start:playable` |
+| **Kubernetes** | Homelabs / clusters | see [docs/KUBERNETES.md](docs/KUBERNETES.md) |
 
-### Option recommandée : Docker Compose
+### Recommended: Docker Compose
 
 ```bash
 git clone https://github.com/djayzone/nukegrid.git
@@ -42,17 +44,15 @@ cd nukegrid
 docker compose up --build
 ```
 
-Puis ouvrez :
-
-**http://localhost:4176**
+Then open **http://localhost:4176**.
 
 ## Docker
 
-Guide détaillé pour débutants :
+Step-by-step beginner guide:
 
 **[docs/DOCKER.md](docs/DOCKER.md)**
 
-Version courte :
+Short version:
 
 ```bash
 docker build -t nukegrid:local .
@@ -61,9 +61,9 @@ docker run --rm -p 4176:4176 nukegrid:local
 
 ## Kubernetes
 
-Un manifeste générique prêt à utiliser est fourni dans `deploy/kubernetes/`.
+A generic ready-to-use manifest is provided in `deploy/kubernetes/`.
 
-Test local rapide avec **kind** :
+Quick local test with **kind**:
 
 ```bash
 docker build -t nukegrid:local .
@@ -73,86 +73,84 @@ kubectl apply -f deploy/kubernetes/
 kubectl -n nukegrid port-forward svc/nukegrid 4176:4176
 ```
 
-Puis ouvrez **http://localhost:4176**.
+Then open **http://localhost:4176**.
 
-Guide complet :
+Full guide:
 
 **[docs/KUBERNETES.md](docs/KUBERNETES.md)**
 
-## Développement local
+## Local development
 
-### Prérequis
+### Requirements
 
 - Node.js 24+
 - npm
 
-### Installation
+### Install
 
 ```bash
 npm install --ignore-scripts --no-audit --no-fund
 ```
 
-### Vérifier le projet
+### Verify the project
 
 ```bash
 npm run check
 ```
 
-Cette commande exécute le typecheck, le lint et les tests.
+This runs type-checking, linting and tests.
 
-### Lancer le jeu
+### Run the game
 
 ```bash
 npm run start:playable
 ```
 
-Puis ouvrez :
-
-**http://127.0.0.1:4176**
+Then open **http://127.0.0.1:4176**.
 
 ## Architecture
 
-NukeGrid sépare clairement simulation, contrats, persistance et interface :
+NukeGrid keeps simulation, contracts, persistence and UI separated:
 
-- `src/contracts/` — commandes, événements, unités et validation ;
-- `src/sim/` — moteur déterministe, production, économie et maintenance ;
-- `src/worker/` — protocole Worker ;
-- `src/content/` — scénario fictif de Valmorne ;
-- `src/persistence/` — sauvegarde et restauration ;
-- `src/playable/` — serveur HTTP et session jouable ;
-- `src/validation/` — outils de validation ;
-- `web/` — interface navigateur ;
-- `test/` — tests automatisés ;
-- `docs/` — décisions et documentation de conception.
+- `src/contracts/` — commands, events, units and validation;
+- `src/sim/` — deterministic engine, production, economy and maintenance;
+- `src/worker/` — Worker protocol;
+- `src/content/` — fictional Valmorne scenario;
+- `src/persistence/` — save and restore;
+- `src/playable/` — HTTP server and playable session;
+- `src/validation/` — validation tooling;
+- `web/` — browser interface;
+- `test/` — automated tests;
+- `docs/` — design and architecture documentation.
 
-## Sauvegardes
+## Saves
 
-Le navigateur utilise IndexedDB pour la sauvegarde locale côté client.
+The browser stores local saves in IndexedDB.
 
-Le serveur NukeGrid fourni ici conserve les sessions en mémoire et n'exige donc pas de base de données ou de PersistentVolume pour démarrer.
+The provided NukeGrid server keeps sessions in memory, so no database or PersistentVolume is required for a first deployment.
 
-## Documentation du projet
+## Project documentation
 
-Quelques points d'entrée :
+Useful starting points:
 
-- [Contrats](docs/L00-CONTRACT.md)
-- [Moteur](docs/L01-ENGINE.md)
+- [Contracts](docs/L00-CONTRACT.md)
+- [Engine](docs/L01-ENGINE.md)
 - [Production](docs/L02-PRODUCTION.md)
 - [Maintenance](docs/L03-MAINTENANCE.md)
-- [Économie](docs/L04-ECONOMY.md)
-- [Scénario](docs/L05-SCENARIO.md)
-- [Interface jouable](docs/L06-PLAYABLE-UI.md)
-- [Sauvegardes](docs/L07-SAVES.md)
+- [Economy](docs/L04-ECONOMY.md)
+- [Scenario](docs/L05-SCENARIO.md)
+- [Playable UI](docs/L06-PLAYABLE-UI.md)
+- [Saves](docs/L07-SAVES.md)
 - [Milestone A](docs/L08-MILESTONE-A.md)
 
-## Contribuer
+## Contributing
 
-Les améliorations de gameplay, UX, scénarios, équilibrage, architecture, documentation et tests sont les bienvenues.
+Gameplay, UX, scenarios, balancing, architecture, documentation and test improvements are welcome.
 
-Voir **[CONTRIBUTING.md](CONTRIBUTING.md)**.
+See **[CONTRIBUTING.md](CONTRIBUTING.md)**.
 
-Les manifests Kubernetes historiques du homelab privé ne font volontairement pas partie de ce dépôt. Les exemples publics fournis ici sont génériques.
+Historical Kubernetes manifests from the original private homelab are intentionally not included. Public deployment examples are generic.
 
-## Licence
+## License
 
-MIT — voir [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).
