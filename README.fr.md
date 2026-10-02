@@ -112,7 +112,7 @@ Gardez **1 replica** tant que les sessions serveur sont en mémoire.
 
 ### Publication d'images sans CI
 
-Voir **[docs/PUBLISHING.fr.md](docs/PUBLISHING.fr.md)** pour publier manuellement une image GHCR sans GitHub Actions.
+Voir **[docs/PUBLISHING.fr.md](docs/PUBLISHING.fr.md)** pour publier une image GHCR via un workflow GitHub lancé uniquement à la demande, ou depuis votre machine.
 
 ## Contribuer
 

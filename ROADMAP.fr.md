@@ -35,7 +35,7 @@ Un chart Helm optionnel est disponible dans `deploy/helm/nukegrid`. La valeur pa
 
 - Réintroduire la configuration du homelab privé.
 - Imposer un fournisseur cloud.
-- Ajouter une CI GitHub Actions automatique consommant des minutes.
+- Lancer de la CI automatiquement sur les push ou pull requests. Le seul workflow GitHub Actions est la publication manuelle d'une image.
 - Héberger une démo live officielle.
 
 ## Participer

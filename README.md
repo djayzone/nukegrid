@@ -159,7 +159,7 @@ Keep the default at **1 replica** until server-side session state is shared or s
 
 ### Publishing container images without CI
 
-See **[docs/PUBLISHING.md](docs/PUBLISHING.md)** to build and push GHCR images manually, with no GitHub Actions workflow.
+See **[docs/PUBLISHING.md](docs/PUBLISHING.md)** to publish a GHCR image through a manually triggered GitHub workflow (or directly from your own machine).
 
 ## Contributing
 

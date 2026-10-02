@@ -38,7 +38,7 @@ An optional Helm chart is available under `deploy/helm/nukegrid`. The default re
 
 - Reintroducing private homelab configuration.
 - Requiring a specific cloud provider.
-- Shipping automatic GitHub Actions that consume CI minutes by default.
+- Running CI automatically on pushes or pull requests. The only GitHub Actions workflow is an explicit manual container-image publication.
 - Hosting an official live demo.
 
 ## How to help
