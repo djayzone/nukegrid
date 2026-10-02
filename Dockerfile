@@ -20,6 +20,7 @@ ENV NODE_ENV=production \
     NUKEGRID_HOST=0.0.0.0 \
     NUKEGRID_PORT=4176
 
+COPY package.json ./
 COPY --from=build /app/.build ./.build
 COPY --from=build /app/web ./web
 
