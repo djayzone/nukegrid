@@ -1,0 +1,21 @@
+{
+  "name": "@djayzone/nukegrid",
+  "version": "0.8.1-l08b",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "node scripts/lint.mjs",
+    "test": "npm run build && node --test .build/test/*.test.js",
+    "check": "npm run typecheck && npm run lint && npm test",
+    "start:playable": "npm run build && node .build/src/playable/server.js"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "@types/node": "24.19.0"
+  }
+}
