@@ -157,6 +157,10 @@ helm install nukegrid ./deploy/helm/nukegrid --namespace nukegrid --create-names
 
 Keep the default at **1 replica** until server-side session state is shared or session affinity is deliberately configured.
 
+### Publishing container images without CI
+
+See **[docs/PUBLISHING.md](docs/PUBLISHING.md)** to build and push GHCR images manually, with no GitHub Actions workflow.
+
 ## Contributing
 
 Gameplay, UX, scenarios, balancing, architecture, documentation and test improvements are welcome.

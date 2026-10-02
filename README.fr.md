@@ -98,6 +98,22 @@ Puis ouvrez **http://127.0.0.1:4176**.
 
 Le navigateur utilise IndexedDB pour la sauvegarde locale côté client. Le serveur conserve les sessions en mémoire.
 
+## Roadmap communautaire
+
+Voir **[ROADMAP.fr.md](ROADMAP.fr.md)** pour les idées gameplay, UX et techniques.
+
+### Helm
+
+```bash
+helm install nukegrid ./deploy/helm/nukegrid --namespace nukegrid --create-namespace
+```
+
+Gardez **1 replica** tant que les sessions serveur sont en mémoire.
+
+### Publication d'images sans CI
+
+Voir **[docs/PUBLISHING.fr.md](docs/PUBLISHING.fr.md)** pour publier manuellement une image GHCR sans GitHub Actions.
+
 ## Contribuer
 
 Voir **[CONTRIBUTING.md](CONTRIBUTING.md)**.
