@@ -2,7 +2,7 @@
 
 NukeGrid is an experimental deterministic nuclear-grid management game prototype.
 
-This directory is now part of a **public community archive**. The original first-party deployment has been retired; forks, issues and pull requests are welcome.
+This repository is now maintained as a public community project. The original maintainer no longer operates it as an actively developed first-party product, but forks, issues and pull requests are welcome.
 
 ## Requirements
 
@@ -12,7 +12,6 @@ This directory is now part of a **public community archive**. The original first
 ## Install and verify
 
 ```bash
-cd nukegrid
 npm install --ignore-scripts --no-audit --no-fund
 npm run check
 ```
@@ -24,14 +23,12 @@ npm run start:playable
 # http://127.0.0.1:4176
 ```
 
-The browser consumes `GET /api/state` and `POST /api/action`; simulation rules remain in the deterministic engine.
-
 ## Layout
 
 - `src/contracts`: commands, events, units, versions and validation contracts.
 - `src/sim`: deterministic PRNG, engine, production, maintenance, economy and scenarios.
 - `src/worker`: Worker protocol/runtime bridge.
-- `src/content`: the fictitious Valmorne scenario.
+- `src/content`: fictitious Valmorne scenario.
 - `src/persistence`: versioned local save/resume.
 - `src/playable`: local HTTP server and playable session.
 - `src/validation`: Milestone A validation tooling.
@@ -39,10 +36,12 @@ The browser consumes `GET /api/state` and `POST /api/action`; simulation rules r
 - `docs`: design documents and architecture decisions.
 - `test`: automated tests.
 
-## Current snapshot
-
-The imported snapshot corresponds to the former private homelab version `0.8.1-l08b`. Environment-specific Kubernetes manifests and private infrastructure configuration were intentionally not copied into this public repository.
+The imported snapshot corresponds to the former private homelab version `0.8.1-l08b`. Environment-specific Kubernetes/GitOps manifests were intentionally excluded.
 
 ## Contributing
 
-See the repository-level `CONTRIBUTING.md`. Gameplay, UX, balancing, architecture and test improvements are all in scope.
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+MIT.
