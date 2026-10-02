@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: nukegrid
+  tag: local
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 4176
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: "1"
+    memory: 256Mi
+
+nameOverride: ""
+fullnameOverride: ""

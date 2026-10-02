@@ -1,0 +1,9 @@
+NukeGrid has been installed.
+
+To access it locally:
+
+  kubectl port-forward svc/{{ include "nukegrid.fullname" . }} 4176:{{ .Values.service.port }}
+
+Then open http://localhost:4176
+
+Keep replicaCount at 1 unless you provide shared session state or appropriate session affinity.

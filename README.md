@@ -143,11 +143,25 @@ Useful starting points:
 - [Saves](docs/L07-SAVES.md)
 - [Milestone A](docs/L08-MILESTONE-A.md)
 
+## Community roadmap
+
+See **[ROADMAP.md](ROADMAP.md)** for starter tasks, gameplay ideas and technical limitations.
+
+### Helm
+
+Advanced Kubernetes users can use the optional Helm chart:
+
+```bash
+helm install nukegrid ./deploy/helm/nukegrid --namespace nukegrid --create-namespace
+```
+
+Keep the default at **1 replica** until server-side session state is shared or session affinity is deliberately configured.
+
 ## Contributing
 
 Gameplay, UX, scenarios, balancing, architecture, documentation and test improvements are welcome.
 
-See **[CONTRIBUTING.md](CONTRIBUTING.md)**.
+See **[CONTRIBUTING.md](CONTRIBUTING.md)**. Bug reports, feature requests and documentation requests have dedicated GitHub issue forms.
 
 Historical Kubernetes manifests from the original private homelab are intentionally not included. Public deployment examples are generic.
 

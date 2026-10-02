@@ -1,0 +1,6 @@
+apiVersion: v2
+name: nukegrid
+description: Community Helm chart for NukeGrid
+type: application
+version: 0.1.0
+appVersion: "0.8.1-l08b"

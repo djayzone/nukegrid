@@ -1,0 +1,28 @@
+name: Feature request
+description: Suggest gameplay, UX or technical improvements
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: gameplay
+    attributes:
+      label: Gameplay impact
+      description: If relevant, explain how this changes player decisions or balancing.
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I would be willing to work on this.
