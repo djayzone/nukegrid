@@ -1,0 +1,8 @@
+services:
+  nukegrid:
+    build:
+      context: .
+    image: nukegrid:local
+    ports:
+      - "4176:4176"
+    restart: unless-stopped
